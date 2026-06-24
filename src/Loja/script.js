@@ -2,9 +2,20 @@ let produtos
 
 window.onload = function () {
     var storedUser = localStorage.getItem("usuario")
-    var user = JSON.parse(storedUser)
-    var dataEntrada = new Date(user.dataEntrada)
+    if (!storedUser) {
+        console.warn("Usuário não encontrado no localStorage. Redirecionando para o login.")
+        window.location.href = "../Login/"
+        return
+    }
 
+    var user = JSON.parse(storedUser)
+    if (!user || !user.dataEntrada) {
+        console.warn("Dados do usuário inválidos. Redirecionando para o login.")
+        window.location.href = "../Login/"
+        return
+    }
+
+    var dataEntrada = new Date(user.dataEntrada)
     var dataFormatada = dataEntrada.toLocaleString("pt-BR", {
         day: "2-digit",
         month: "2-digit",
@@ -34,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="card-body">
                             <h5 class="card-title">${produto.desc}</h5>
                             <p class="card-text">Salário: $${produto.sal}</p>
-                            <a href="#" class="btn btn-primary adicionar">
+                            <a href="#" class="btn btn-primary adicionar" data-indice="${index}">
                                 Encaminhar
                             </a>
                         </div>
@@ -47,13 +58,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".adicionar")
         if (!btn) return
 
-        const indexDoProduto = btn.dataset.indice 
+        event.preventDefault()
+        const indexDoProduto = Number(btn.dataset.indice)
         const produtoSelecionado = produtos[indexDoProduto]
+        if (!produtoSelecionado) return
+
         let carrinho = JSON.parse(localStorage.getItem("carrinho")) || []
         carrinho.push(produtoSelecionado)
         localStorage.setItem("carrinho", JSON.stringify(carrinho))
         alert("Produto adicionado com sucesso!")
-        })
+    })
 
 })
 

@@ -60,7 +60,49 @@ body{
 
 .wrap-input-label label{
     color: aliceblue;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
-
+.wrap-input-label input{
+    background-color: transparent;
+    padding: 8px 0px;
+    border: none;
+    width: 100%;
+    border-bottom: 2px solid #ffecd1;
+    font: 18px;
+    color: #ffecd1;
+}
 .logo{
     width: 200px}
+
+input::placeholder{
+    color: #001524;
+    font-size: 16px;
+}
+
+input:focus{
+    border: none;
+    outline: none;
+    color: #ff7d00;
+    font-size: 16px;
+    border-bottom: 2px solid #ff7d00;
+}
+
+.btn-login{
+    padding: 10px;
+    width: 81%;
+    background-color: #ff7d00;
+    border-radius: 999px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #001524;
+    transition: all 200ms ease-in-out;
+    margin-top: 10px;
+}
+
+.btn-login:hover{
+    cursor: pointer;
+    color: #ffecd1;
+    border: 2px solid #ffecd1;
+}

@@ -1,29 +1,38 @@
-$(document).ready(function(){
+document.addEventListener("DOMContentLoaded", function(){
     const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    const listaElement = $("#lista");
-    const totalElement = $("#total");
+    const listaElement = document.getElementById("lista");
+    const totalElement = document.getElementById("total");
 
     function exibirCarrinho(){
-        listaElement.empty();
+        listaElement.innerHTML = "";
         let totalPreco = 0;
 
-        $.each(carrinho, function(index, item){
-            const listItem = $("<li>").text(`${item.desc} - Preço $${Number(item.preco).toFixed(2)}`);
+        if (carrinho.length === 0) {
+            const vazioItem = document.createElement("li");
+            vazioItem.textContent = "Carrinho vazio";
+            listaElement.appendChild(vazioItem);
+            totalElement.textContent = "Total: $0.00";
+            return;
+        }
 
-            const removeButton = $("<button>")
-                .text("❌")
-                .css("margin-left", "10px")
-                .click(function(){
-                    removerItem(index);
-                });
+        carrinho.forEach(function(item, index){
+            const preco = Number(item.preco ?? item.sal ?? 0);
+            const listItem = document.createElement("li");
+            listItem.textContent = `${item.desc} - Preço $${preco.toFixed(2)}`;
 
-            listItem.append(removeButton);
-            listaElement.append(listItem);
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "❌";
+            removeButton.style.marginLeft = "10px";
+            removeButton.addEventListener("click", function(){
+                removerItem(index);
+            });
 
-            totalPreco += Number(item.preco) || 0;
+            listItem.appendChild(removeButton);
+            listaElement.appendChild(listItem);
+            totalPreco += preco;
         });
 
-        totalElement.text(`Total: $${totalPreco.toFixed(2)}`);
+        totalElement.textContent = `Total: $${totalPreco.toFixed(2)}`;
     }
 
     function removerItem(index){
@@ -41,7 +50,10 @@ function gerar(){
     if(!listaElement || !totalElement) return;
 
     const listaClone = listaElement.cloneNode(true);
-    $(listaClone).find("button").remove();
+    const buttons = listaClone.querySelectorAll("button");
+    buttons.forEach(function(button){
+        button.remove();
+    });
     const listaHtml = listaClone.innerHTML;
     const totalHtml = totalElement.innerHTML;
     const conteudoHTML = `

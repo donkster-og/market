@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", function(){
             const vazioItem = document.createElement("li");
             vazioItem.textContent = "Carrinho vazio";
             listaElement.appendChild(vazioItem);
-            totalElement.textContent = "Total: $0.00";
+            totalElement.textContent = "Total: R$0.00";
             return;
         }
 
         carrinho.forEach(function(item, index){
             const preco = Number(item.preco ?? item.sal ?? 0);
             const listItem = document.createElement("li");
-            listItem.textContent = `${item.desc} - Preço $${preco.toFixed(2)}`;
+            listItem.textContent = `${item.desc} - Preço R$${preco.toFixed(2)}`;
 
             const removeButton = document.createElement("button");
             removeButton.textContent = "❌";
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
             totalPreco += preco;
         });
 
-        totalElement.textContent = `Total: $${totalPreco.toFixed(2)}`;
+        totalElement.textContent = `Total: R$${totalPreco.toFixed(2)}`;
     }
 
     function removerItem(index){

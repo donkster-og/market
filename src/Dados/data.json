@@ -1,20 +1,20 @@
 [
     {
         "id": 1,
-        "desc": "Minos Prime",
-        "imagem": "../../public/minos-prime.gif",
-        "sal": 7000
+        "desc": "Don Plushie",
+        "imagem": "../../public/don.jpg",
+        "preco": 69.90
     },
     {
         "id": 2,
-        "desc": "Sisyphus Prime",
-        "imagem": "../../public/ultrakill-sisyphus-prime.gif",
-        "sal": 10000
+        "desc": "Sinclair Plushie Plushie",
+        "imagem": "../../public/sinclair.jpg",
+        "preco": 99.90
     },
     {
         "id": 3,
-        "desc": "V1",
-        "imagem": "../../public/as.gif",
-        "sal": 80000
+        "desc": "Yi Sang Plushie",
+        "imagem": "../../public/yi sang.jpg",
+        "preco": 129.90
     }
 ]

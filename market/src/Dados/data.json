@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "desc": "Don Plushie",
+        "imagem": "../../public/don.jpg",
+        "preco": 69.90
+    },
+    {
+        "id": 2,
+        "desc": "Sinclair Plushie",
+        "imagem": "../../public/sinclair.jpg",
+        "preco": 99.90
+    },
+    {
+        "id": 3,
+        "desc": "Yi Sang Plushie",
+        "imagem": "../../public/yi sang.jpg",
+        "preco": 129.90
+    }
+]

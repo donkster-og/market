@@ -1,20 +1,26 @@
 [
     {
         "id": 1,
-        "desc": "Don Plushie",
-        "imagem": "../../public/don.jpg",
-        "preco": 69.90
+        "desc": "Guido",
+        "imagem": "../../public/guido.png",
+        "preco": 69990.00
     },
     {
         "id": 2,
-        "desc": "Sinclair Plushie Plushie",
-        "imagem": "../../public/sinclair.jpg",
-        "preco": 99.90
+        "desc": "Matthew",
+        "imagem": "../../public/matt.jpg",
+        "preco": 99990.00
     },
     {
         "id": 3,
-        "desc": "Yi Sang Plushie",
-        "imagem": "../../public/yi sang.jpg",
-        "preco": 129.90
+        "desc": "Relampago Mcqueen",
+        "imagem": "../../public/mcqueen.jpg",
+        "preco": 129990.00
+    },
+     {
+        "id": 4,
+        "desc": "Power Guido",
+        "imagem": "../../public/power guido.png",
+        "preco": 69990.00
     }
 ]

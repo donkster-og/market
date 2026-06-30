@@ -62,8 +62,8 @@ function gerar(){
             <meta charset="UTF-8">
         </head>
         <body>
-            <h1>Pedido Confirmado</h1>
-            <h3>Agradecemos sua compra e sua preferência.</h3>
+            <h1>Pedido de Veículo Confirmado</h1>
+            <h3>Agradecemos sua compra de automóveis.</h3>
             <br>
             ${listaHtml}
             <br>
